@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dwight - Impact Trader</title>
+<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- Glyphicons --> 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="justified-nav.css" rel="stylesheet">
+           <!-- Custom styles for this template -->
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+      <!-- JQUERY -->
+    <script src="js/jquery.js"></script>
+  <!-- JQUERY END-->
+   <!-- JS-->
+    <script src="js/bootstrap.js"></script>
+  <!-- JS END-->
+   
+ <style type="text/css">
+        td {
+            width: 20%;
+        }
+
+        th {
+            width: 20%;
+            text-align: left;
+        }
+
+        .table {
+            text-align: left;
+            margin-bottom: 0px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .navbar {
+            position: static;
+        }
+    </style>
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+    <script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="/Scripts/jquery-ui-1.8.24.js"></script>
+
+    <script src="/Scripts/common.js"></script>
+<script src="/Scripts/bootstrap-maxlength.js"></script>
+<script src="/Scripts/parallax.js"></script>
+<script src="/Scripts/single-page-scroll.js"></script>
+<script src="/Scripts/highstock.js"></script>
+<script src="/Scripts/summernote.js"></script>
+
+    
+</head>
+<body>
+    <!-- LOGO -->
+    <div class="row" style="margin-top:15px">
+        <div class="container">
+            <div class="col-xs-12 col-sm-5 col-md-5">
+                <img style="max-width:300px" class="img-responsive" src="img/impact_trader_logo.png" />
+                <h4 style="margin-top:0px;margin-bottom:15px">Impact Investing for Financial Advisors</h4>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="row">
+                    <!-- todo: Search box functionality-->
+                    <div class="input-group pull-right col-xs-12 col-sm-8 col-md-6" style="visibility:hidden;">
+                        <input type="text" class="form-control" placeholder="Search . . . ">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> <span class="caret"></span></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">Search Offerings</a></li>
+                                <li><a href="#">Search Clients</a></li>
+                                <li><a href="#">Search Transactions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="/Home/Offerings" class="btn btn-success pull-right viewofferingsbutton" style="margin-right: 5px; margin-top: 20px; display: none;">View Impact Offerings &nbsp <span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <!-- todo: Confirm Order button
+                        <a href="/Home/ConfirmOrder" hidden="hidden" class="btn btn-success pull-right confirmorderbuttontodo" style="margin-right:5px;margin-top:20px">Complete Order &nbsp <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LOGO END -->
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="homelink"><a href="/ImpactSummary">Home</a></li>
+
+                        <li id="adminlink"><a href="/Home/Admin">Administration</a></li>
+                                            <li id="offeringslink"><a href="/Home/Offerings">Offerings</a></li>
+                        <li id="clientslink"><a href="/Home/Clients">Clients</a></li>
+                        <li id="transactionslink">
+                            <a href="/Home/Transactions">
+                            Transactions
+                            </a>
+                        </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Account/Manage" style="color:#41a9d6;" title="Manage">Logged in as ImpactTraderAdmin</a></li>
+    <li><a href="/Account/Manage" title="Manage"> Manage Account</a></li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+<form action="/Account/LogOff" id="logoutForm" method="post" style="float:left;"><input name="__RequestVerificationToken" type="hidden" value="aOPudYWCWcF-NgZxrDBi58y1Jnn0BnClv8m3kqJ8eldVyh6BIAoqAlAaBsHLFz_olDhaJV_m3kIbDIIV6H12y4iBdgKhNVhjuZLRH0XJNQ_pzJ-6j2TlIhjfWmTm_Qj1HA_5WdS0_c0U9vkAjRPE9g2" /></form>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container-full">
+        
+
+
+<style>
+    .border-highlight {
+        border: 5px solid red;
+    }
+
+    .over {
+        outline: 5px solid red;
+    }
+
+    .yeah {
+        outline: 5px solid red;
+    }
+</style>
+
+
+
+<input type="hidden" id="ProductId" value="1004" />
+<input type="hidden" id="SelectedSlideBG" value="" />
+<input type="hidden" id="SelectedSlideTemplate" value="1" />
+
+<!-- Data for compiled summary -->
+<div class="row">
+    <div class="container">
+        <div class="col-md-9 col-sm-6 col-xs-12" style="margin-bottom: 20px">
+            <h2><span class="glyphicon glyphicon-pencil"></span>&nbsp Input Quarterly Impact Data</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container well" style="margin-top:20px">
+    <div class="col-xs-2">
+        <p class="text-muted" style="font-size:100px">A)</p>
+    </div>
+    <div class="col-xs-10" style="margin-bottom:50px">
+        <ul class="list-unstyled list-inline">
+            <li><h2 class="text-muted"><span class="glyphicon glyphicon-ok-circle"></span></h2></li>
+            <li><h2 class="text-muted">Select Offering and Time Period</h2></li>
+        </ul>
+    </div>
+    <div class="col-xs-12">
+        <form class="form-inline" role="form">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span id="ProductName">Select Fund</span> <span class="caret"></span>
+                </button>
+                <ul id="product" class="dropdown-menu" role="menu">
+                        <li><a onclick="$('#ProductName').text('Maple Bay Asset Management');$('#ProductId').val('1003');">Maple Bay Asset Management</a></li>
+                        <li><a onclick="$('#ProductName').text('Community Investment Note');$('#ProductId').val('1004');">Community Investment Note</a></li>
+                        <li><a onclick="$('#ProductName').text('Pave Columbia Graduates');$('#ProductId').val('3018');">Pave Columbia Graduates</a></li>
+                        <li><a onclick="$('#ProductName').text('Women Entrepreneurs');$('#ProductId').val('3021');">Women Entrepreneurs</a></li>
+                        <li><a onclick="$('#ProductName').text('All of Pave.com');$('#ProductId').val('3023');">All of Pave.com</a></li>
+                        <li><a onclick="$('#ProductName').text('Tugende Driven Fund');$('#ProductId').val('3024');">Tugende Driven Fund</a></li>
+                        <li><a onclick="$('#ProductName').text('China Impact Fund');$('#ProductId').val('3025');">China Impact Fund</a></li>
+                        <li><a onclick="$('#ProductName').text('India Impact Fund');$('#ProductId').val('3026');">India Impact Fund</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span id="impactQuarter">Select Quarter</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onclick="$('#impactQuarter').text('Q1');">Q1</a></li>
+                    <li><a onclick="$('#impactQuarter').text('Q2');">Q2</a></li>
+                    <li><a onclick="$('#impactQuarter').text('Q3');">Q3</a></li>
+                    <li><a onclick="$('#impactQuarter').text('Q4');">Q4</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span id="impactYear">Select Year</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onclick="$('#impactYear').text('2014');">2014</a></li>
+                    <li><a onclick="$('#impactYear').text('2013');">2013</a></li>
+                    <li><a onclick="$('#impactYear').text('2012');">2012</a></li>
+                    <li><a onclick="$('#impactYear').text('2011');">2011</a></li>
+                    <li><a onclick="$('#impactYear').text('2010');">2010</a></li>
+                    <li><a onclick="$('#impactYear').text('2009');">2009</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container well" style="margin-top:20px">
+    <div class="col-xs-2">
+        <p class="text-muted" style="font-size:100px">B)</p>
+    </div>
+    <div class="col-xs-10" style="margin-bottom:50px">
+        <ul class="list-unstyled list-inline">
+            <li><h2 class="text-muted"><span class="glyphicon glyphicon-ok-circle"></span></h2></li>
+            <li><h2 class="text-muted">Enter Impact Metrics Data (used in summary graphs and charts)</h2></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-8">
+                <table class="table" id="customFields">
+
+                                            <tr>
+                            <td><label for="customFieldName">Impact Metric</label></td>
+                            <td>
+                                <div class="btn-group" style="margin-right:15px">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span class="impactmetrics" id="impactMetric">Select Metric</span> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu impactmetriclist" role="menu">
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Schools');">Schools</a></li>
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Loans');">Loans</a></li>
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Housing Units');">Housing Units</a></li>
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Wells Built');">Wells Built</a></li>
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Shareholder Resolutions - Submitted');">Shareholder Resolutions - Submitted</a></li>
+                                            <li><a class="impactmetric" onclick="$('#impactMetric').text('Shareholder Resolutions - Passed');">Shareholder Resolutions - Passed</a></li>
+                                        <li><a class="impactmetric" onclick="$(&#39;#impactMetric&#39;).html(&#39;&lt;input id=&quot;newimpactmetric&quot; type=&quot;text&quot; /&gt;&#39;);">(Add New Metric)</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <input style="width:150px" type="text" class="form-control InputMetricTotal" id="InputMetricTotal" name="customFieldName[]" value="" placeholder="Enter Total" />
+                            </td>
+                            <td></td>
+                        </tr>
+                </table>
+                <hr style="background-color:lightgrey;border-color:lightgrey" />
+                <a href="javascript:void(0);" class="addCF btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp Add Metric</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+
+<!-- Quarterly Summary for your offering -->
+<div class="container well" style="margin-top:20px">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <p class="text-muted" style="font-size:100px;margin-left:10px">C)</p>
+            </div>
+            <div class="col-xs-10">
+                <ul class="list-unstyled list-inline">
+                    <li><h2 class="text-muted"><span class="glyphicon glyphicon-ok-circle"></span></h2></li>
+                    <li><h2 class="text-muted">Tell Your Story - Select Background Image</h2></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="thumbs">
+                <div class="row">
+                    <img onclick="$('#SelectedSlideBG').val('cityFromAbove.png');" class="thumbnail pull-left" style="width:275px" src="img/cityFromAbove.png">
+                    <img onclick="$('#SelectedSlideBG').val('Houses.png');" class="thumbnail pull-left" style="width:275px" src="img/Houses.png">
+                    <img onclick="$('#SelectedSlideBG').val('forest.png');" class="thumbnail pull-left" style="width:275px" src="img/forest.png">
+                    <img onclick="$('#SelectedSlideBG').val('KidsInClassroom.png');" class="thumbnail pull-left" style="width:275px" src="img/KidsInClassroom.png">
+                </div>
+                <div class="row">
+                    <img onclick="$('#SelectedSlideBG').val('cityFromAbove.png');" class="thumbnail pull-left" style="width:275px" src="img/cityFromAbove.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container well" style="margin-top:20px">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <p class="text-muted" style="font-size:100px;margin-left:10px">D)</p>
+            </div>
+            <div class="col-xs-10">
+                <ul class="list-unstyled list-inline">
+                    <li><h2 class="text-muted"><span class="glyphicon glyphicon-ok-circle"></span></h2></li>
+                    <li><h2 class="text-muted">Tell Your Story - Create Slide #1</h2></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a href="#template1" id="template1tab" onclick="$('#SelectedSlideTemplate').val('1');" data-toggle="tab"><img style="max-width:175px" src="img/TitleTwoPanel.PNG" /></a></li>
+            <li><a href="#template2" id="template2tab" onclick="$('#SelectedSlideTemplate').val('2');" data-toggle="tab"><img style="max-width:175px" src="img/TitleOnePanel.PNG" /></a></li>
+            <li><a href="#template3" id="template3tab" onclick="$('#SelectedSlideTemplate').val('3');" data-toggle="tab"><img style="max-width:175px" src="img/OnePanel.PNG" /></a></li>
+            <li><a href="#template4" id="template4tab" onclick="$('#SelectedSlideTemplate').val('4');" data-toggle="tab"><img style="max-width:175px" src="img/VideoSlide.PNG" /></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="template1">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <div style="margin-top:30px;width:400px;height:300px;background-color:grey;border: 3px solid black">
+                            <div class="boxOne" style="width:365px;height:40px;margin-left:15px;margin-top:10px;background-color:darkgray"></div>
+                            <div class="pull-left boxTwo" style="width:175px;height:210px;margin-top:10px;margin-left:15px;background-color:darkgray"></div>
+                            <div class="pull-right boxThree" style="width:175px;height:210px;margin-top:10px;margin-right:15px;background-color:darkgray"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <form role="form" style="margin-top:30px">
+                            <div class="form-group textOne">
+                                <label for="SlideTitle1">Title of Slide</label>
+                                <input type="text" class="form-control maxlength" maxlength="50" id="SlideTitle1" placeholder="Enter title of slide">
+                            </div>
+                            <div class="form-group textTwo">
+                                <label for="SlideLeft1">Text for Left Panel</label>
+                                <textarea rows="3" class="form-control maxlength" maxlength="500" id="SlideLeft1" placeholder="Enter text for left panel"></textarea>
+                            </div>
+                            <div class="form-group textThree">
+                                <label for="SlideRight1">Text for Right Panel</label>
+                                <textarea rows="3" class="form-control maxlength" maxlength="500" id="SlideRight1" placeholder="Enter text for right panel"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="template2">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <div style="margin-top:30px;width:400px;height:300px;background-color:grey;border: 3px solid black">
+                            <div class="boxOne" style="width:365px;height:40px;margin-left:15px;margin-top:10px;background-color:darkgray"></div>
+                            <div class="pull-left boxTwo" style="width:365px;height:210px;margin-top:10px;margin-left:15px;background-color:darkgray"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <form role="form" style="margin-top:30px">
+                            <div class="form-group textOne">
+                                <label for="SlideTitle2">Title of Slide</label>
+                                <input id="SlideTitle2" type="text" maxlength="50" class="form-control maxlength" placeholder="Enter title of slide">
+                            </div>
+                            <div class="form-group textTwo">
+                                <label for="SlideText2">Text for Main Panel</label>
+                                <textarea id="SlideText2" rows=" 3" maxlength="500" class="form-control maxlength" placeholder="Enter text for left panel"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="template3">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <div style="margin-top:30px;width:400px;height:300px;background-color:grey;border: 3px solid black">
+                            <div class="pull-left boxOne" style="width:365px;height:270px;margin-top:10px;margin-left:15px;background-color:darkgray"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <form role="form" style="margin-top:30px">
+                            <div class="form-group textOne">
+                                <label for="SlideText3">Text for Main Panel</label>
+                                <textarea id="SlideText3" rows="3" maxlength="500" class="form-control maxlength" placeholder="Enter text for left panel"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="template4">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <div style="margin-top:30px;width:400px;height:300px;background-color:grey;border: 3px solid black">
+                            <img style="max-width:370px;margin-left:12px;margin-top:15px" src="img/VideoPlayer.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <form role="form" style="margin-top:30px">
+                            <div class="form-group textOne">
+                                (Coming soon!)
+                                <label for="exampleInputPassword1">Upload Video</label>
+                                <input type="file" id="exampleInputFile">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="btn btn-primary pull-right btn-lg" onclick="SaveAndExit();"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp Submit Final</a>
+            <a class="btn btn-default pull-right btn-lg" onclick="SaveAndPreview();" style="margin-right:15px"><span class=" glyphicon glyphicon-floppy-saved"></span>&nbsp Preview</a>
+        </div>
+    </div>
+</div>
+<!-- ADD SECOND SLIDE -->
+<div class="scrambled">
+    <div class="container well" style="margin-top:20px">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-2">
+                    <p class="text-muted" style="font-size:100px;margin-left:10px">E)</p>
+                </div>
+                <div class="col-xs-10">
+                    <ul class="list-unstyled list-inline">
+                        <li><h2 class="text-muted"><span class="glyphicon glyphicon-ok-circle"></span></h2></li>
+                        <li><h2 class="text-muted">Add another Slide (Optional)</h2></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-4">
+                <a style="margin-top:15px" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-chevron-down"></span>&nbsp Add another Slide</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="modal fade" id="waitingForSummary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Working...</h2>
+                </div>
+                <div class="modal-body">
+                    Impact Trader is generating your fund's Impact Statement.<br />
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                            <span class="sr-only">Impact Trader is generating your fund's Impact Statement.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".addCF").click(function () {
+
+            var numItems = $('.impactmetrics').length;
+            $("#customFields").append('<tr><td><label for="customFieldName">Impact Metric</label></td><td>' +
+                '<div class="btn-group" style="margin-right:15px"><button type="button" ' +
+                ' class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="impactmetrics" id="impactMetric' +
+                '">Select Metric</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu">' +
+                '<li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Schools\');">Schools</a></li><li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Loans\');">Loans</a></li><li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Housing Units\');">Housing Units</a></li><li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Wells Built\');">Wells Built</a></li><li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Shareholder Resolutions - Submitted\');">Shareholder Resolutions - Submitted</a></li><li><a onclick="$(this).closest(\'td\').find(\'.impactmetrics\').text(\'Shareholder Resolutions - Passed\');">Shareholder Resolutions - Passed</a></li>' + '<li><a class="impactmetric" onclick="$(&#39;#impactMetric&#39;).html(&#39;&lt;input id=&quot;newimpactmetric&quot; type=&quot;text&quot; /&gt;&#39;);">(Add New Metric)</a></li>' +
+                '</ul></div></td><td><input style="width:150px" type="text" ' +
+                'class="form-control InputMetricTotal" id="InputMetricTotal" name="customFieldName[]" value="" placeholder="Enter Total" />' +
+                '</td><td><a href="javascript:void(0);" class="remCF"><span class="glyphicon glyphicon-remove" style="color:black;margin-top:8px">' +
+                '</span></a></td></tr></td></tr>');
+        });
+        $("#customFields").on('click', '.remCF', function () {
+            $(this).parent().parent().remove();
+        });
+    });
+
+    $('#thumbs').delegate('img', 'click', function () {
+        var $this = $(this);
+        // Clear formatting
+        $('#thumbs img').removeClass('border-highlight');
+
+        // Highlight with coloured border
+        $this.addClass('border-highlight');
+
+        // Changes the value of the form field "animal" to the file name shown in the image.
+        $('[name="animal"]').val($this.attr('src').substring($this.attr('src').lastIndexOf('/') + 1));
+
+    });
+
+    $('#thumbs2').delegate('img', 'click', function () {
+        var $this = $(this);
+        // Clear formatting
+        $('#thumbs2 img').removeClass('border-highlight');
+
+        // Highlight with coloured border
+        $this.addClass('border-highlight');
+
+        // Changes the value of the form field "animal" to the file name shown in the image.
+        $('[name="animal"]').val($this.attr('src').substring($this.attr('src').lastIndexOf('/') + 1));
+
+    });
+
+    $(function () {
+        $('#myTab a:first').tab('show')
+    })
+    $(".boxOne").hover( //mouseover id
+  function () {
+      $(".textOne").addClass('over') // this function is for mouse over
+  },
+  function () {
+      $(".textOne").removeClass('over') // this is for mouse out
+  });
+    $(".textOne").hover( //mouseover id
+ function () {
+     $(".boxOne").addClass('yeah') // this function is for mouse over
+ },
+ function () {
+     $(".boxOne").removeClass('yeah') // this is for mouse out
+ });
+    $(".boxTwo").hover( //mouseover id
+  function () {
+      $(".textTwo").addClass('over') // this function is for mouse over
+  },
+  function () {
+      $(".textTwo").removeClass('over') // this is for mouse out
+  }
+);
+    $(".textTwo").hover( //mouseover id
+ function () {
+     $(".boxTwo").addClass('yeah') // this function is for mouse over
+ },
+ function () {
+     $(".boxTwo").removeClass('yeah') // this is for mouse out
+ });
+    $(".boxThree").hover( //mouseover id
+  function () {
+      $(".textThree").addClass('over') // this function is for mouse over
+  },
+  function () {
+      $(".textThree").removeClass('over') // this is for mouse out
+  });
+    $(".textThree").hover( //mouseover id
+ function () {
+     $(".boxThree").addClass('yeah') // this function is for mouse over
+ },
+ function () {
+     $(".boxThree").removeClass('yeah') // this is for mouse out
+ });
+
+    function SaveAndContinue() {
+        var request = GatherData();
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", function (evt) { SaveComplete(evt); }, false);
+        xhr.addEventListener("error", function (evt) { SaveFailed(evt); }, false);
+        xhr.addEventListener("abort", function (evt) { SaveCanceled(evt); }, false);
+        xhr.open("POST", "", true);
+        xhr.send(request);
+    }
+
+    function SaveAndExitSuccessful(evt) {
+        window.location.href = "/ImpactSummary";
+    }
+
+    function SaveAndPreviewSuccessful(evt) {
+        SaveComplete(evt);
+
+        window.location.href = "../../../Content/ImpactSummaries/pdf/Community Investment Note ImpactSummary.pdf";
+    }
+
+    function addSlideSuccessful(evt) {
+        SaveComplete(evt);
+        postNewSlide();
+    }
+
+    function SaveAndExit() {
+        var request = GatherData();
+        var xhr = new XMLHttpRequest();
+        // for this one, go to index url after success
+        xhr.addEventListener("load", function (evt) { SaveAndExitSuccessful(evt); }, false);
+        xhr.addEventListener("error", function (evt) { SaveFailed(evt); }, false);
+        xhr.addEventListener("abort", function (evt) { SaveCanceled(evt); }, false);
+        xhr.open("POST", "", true);
+        xhr.send(request);
+    }
+
+    function SaveAndPreview() {
+        var request = GatherData();
+        var xhr = new XMLHttpRequest();
+        // for this one, go to pdf url after success
+        xhr.addEventListener("load", function (evt) { SaveAndPreviewSuccessful(evt); }, false);
+        xhr.addEventListener("error", function (evt) { SaveFailed(evt); }, false);
+        xhr.addEventListener("abort", function (evt) { SaveCanceled(evt); }, false);
+        xhr.open("POST", "", true);
+        xhr.send(request);
+    }
+
+    function addSlide() {
+        var request = GatherData();
+        var xhr = new XMLHttpRequest();
+        // for this one, go to pdf url after success
+        xhr.addEventListener("load", function (evt) { addSlideSuccessful(evt); }, false);
+        xhr.addEventListener("error", function (evt) { SaveFailed(evt); }, false);
+        xhr.addEventListener("abort", function (evt) { SaveCanceled(evt); }, false);
+        xhr.open("POST", "", true);
+        xhr.send(request);
+    }
+
+    function GatherData() {
+        var fd = new FormData();
+        $('#waitingForSummary').modal('show');
+
+        if ($("#SelectedSlideTemplate").val() == 1) {
+            fd.append("Title", $("#SlideTitle1").val());
+            fd.append("Text1", $("#SlideLeft1").val());
+            fd.append("Text2", $("#SlideRight1").val());
+        } else if ($("#SelectedSlideTemplate").val() == 2) {
+            fd.append("Title", $("#SlideTitle2").val());
+            fd.append("Text1", $("#SlideText2").val());
+        } else if ($("#SelectedSlideTemplate").val() == 3) {
+            fd.append("Text1", $("#SlideText3").val());
+        }
+
+        metricsList = [];
+        valuesList = [];
+        $(".impactmetrics").each(function (index, value) {
+            if (value.children.length) {
+                metricsList.push(value.children[0].value);
+            } else {
+                metricsList.push(value.innerHTML);
+            }
+        });
+
+        $(".InputMetricTotal").each(function (index, value) {
+            valuesList.push(value.value);
+        });
+
+            fd.append("slideID", "1045");
+        fd.append("productID", $("#ProductId").val());
+        fd.append("impactQuarter", $("#impactQuarter").text());
+        fd.append("impactYear", $("#impactYear").text());
+        fd.append("impactMetrics", metricsList);
+        fd.append("impactMetricValues", valuesList);
+        fd.append("backgroundImageId", $("#SelectedSlideBG").val());
+        fd.append("templateId", $("#SelectedSlideTemplate").val());
+        return fd;
+    }
+
+    function SaveComplete(evt) {
+        $('#waitingForSummary').modal('hide');
+    }
+
+    function SaveFailed(evt) {
+        $('#waitingForSummary').modal('hide');
+        alert("There was an error attempting to create the slide.");
+    }
+
+    function SaveCanceled(evt) {
+        $('#waitingForSummary').modal('hide');
+        alert("Canceled.");
+    }
+
+    function postNewSlide() {
+        if ($("#ProductId").val().length == 0) {
+            alert("Please select a product.");
+            return;
+        }
+
+        var $form = $("<form/>").attr("id", "data_form").attr("action", "../Create").attr("method", "post");
+        $("body").append($form);
+
+        //Append the values to be sent
+        $form.append('<input type="hidden" name="ProductIdFinal" value="' + $("#ProductId").val() + '" />');
+        $form.append('<input type="hidden" name="impactQuarterFinal" value="' + $("#impactQuarter").text() + '" />');
+        $form.append('<input type="hidden" name="impactYearFinal" value="' + $("#impactYear").text() + '" />');
+
+        //Send the Form
+        $form[0].submit();
+    }
+</script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function () {
+// Text length countdown
+    $(".maxlength").maxlength();
+    //        document.getElementById('impactslink').className += ' active';
+        $("#impactQuarter").text("Q2");
+            $("#impactYear").text("Q2");
+            $("#ProductId").text("1004");
+        $("#ProductName").text("Community Investment Note");
+        });
+</script>
+    </div>
+
+    <!-- Site footer -->
+    <div class="container">
+        <div id="footer" style="margin-top: 50px; margin-bottom: 25px;padding-top:15px">
+            <div class="container">
+              <ul class="list-inline">
+                <li style="color:#808080;margin-right:50px">&copy; Impact Trader, Inc. 2014</li>
+                <li id="aboutlink"><a style="color:#808080;text-decoration:none" href="/Home/About">About</a></li>
+                <li id="legallink"><a style="color:#808080;text-decoration:none" href="/Home/Legal">Legal</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
